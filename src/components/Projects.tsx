@@ -1,7 +1,19 @@
 // src/components/Projects.tsx
 
 import React from 'react';
-import { Box, Container, Typography, Grid, Paper } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Link } from '@mui/material';
+
+// Define the project titles type
+type ProjectTitle = 'Quiz Whiz' | 'Bookmark Extension' | 'MyFinance' | 'Kesk Chat' | 'Turtle Crossing';
+
+// Create the project links object with the defined type
+const projectLinks: Record<ProjectTitle, string> = {
+  'Quiz Whiz': 'https://github.com/Black-Scorpio/Quiz_Whiz',
+  'Bookmark Extension': 'https://github.com/Black-Scorpio/BookmarkExtension',
+  'MyFinance': 'https://github.com/Black-Scorpio/my-finance',
+  'Kesk Chat': 'https://github.com/kevyndowner/KeskChat_MainVersion',
+  'Turtle Crossing': 'https://github.com/Black-Scorpio/Turtle-Crossing'
+};
 
 const Projects: React.FC = () => {
   return (
@@ -18,107 +30,49 @@ const Projects: React.FC = () => {
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
           fontSize: { xs: '2rem', md: '3rem' },
           paddingTop: '64px'
-          
       }}
         >
           Projects
         </Typography>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <Paper 
-              elevation={3} 
-              sx={{ 
-                padding: 2,
-                backgroundColor: '#B8D8C0', // Slightly lighter green color for the project boxes
-                border: '1px solid #8FA98F', // Soft border
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
-              }}
-            >
-              <Typography variant="h5" component="h3">
-                Bookmark Extension
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Lightweight Application made with JavaScript, CSS 
-                &, HTML to save and manage tabs
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Paper 
-              elevation={3} 
-              sx={{ 
-                padding: 2,
-                backgroundColor: '#B8D8C0', // Slightly lighter green color for the project boxes
-                border: '1px solid #8FA98F', // Soft border
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
-              }}
-            >
-              <Typography variant="h5" component="h3">
-                MyFinance
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Track and Manage your finances, made with 
-                Java Spring Boot & Postgresql
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Paper 
-              elevation={3} 
-              sx={{ 
-                padding: 2,
-                backgroundColor: '#B8D8C0', // Slightly lighter green color for the project boxes
-                border: '1px solid #8FA98F', // Soft border
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
-              }}
-            >
-              <Typography variant="h5" component="h3">
-                Quiz Whiz
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Collaborative Application built through Swift StoryboardUI
-                and the use of Github/Git
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Paper 
-              elevation={3} 
-              sx={{ 
-                padding: 2,
-                backgroundColor: '#B8D8C0', // Slightly lighter green color for the project boxes
-                border: '1px solid #8FA98F', // Soft border
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
-              }}
-            >
-              <Typography variant="h5" component="h3">
-                Weather Alert
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Python Application to send email 
-                alerts based on specific weather patterns!
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Paper 
-              elevation={3} 
-              sx={{ 
-                padding: 2,
-                backgroundColor: '#B8D8C0',
-                border: '1px solid #8FA98F', 
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
-              }}
-            >
-              <Typography variant="h5" component="h3">
-                Kesk Chat
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Built with React and socket.io, a real time chat room.
-              </Typography>
-            </Paper>
-          </Grid>
-          {/* Add more projects as needed */}
+          {Object.keys(projectLinks).map((projectTitle) => (
+            <Grid item xs={12} sm={6} key={projectTitle}>
+              <Link 
+                href={projectLinks[projectTitle as ProjectTitle]} 
+                target="_blank" 
+                rel="noopener" 
+                underline="none" 
+                sx={{ 
+                  display: 'block',
+                  '&:hover': {
+                    textDecoration: 'none'
+                  }
+                }}
+              >
+                <Paper 
+                  elevation={3} 
+                  sx={{ 
+                    padding: 2,
+                    backgroundColor: '#B8D8C0',
+                    border: '1px solid #8FA98F', 
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+                    cursor: 'pointer' 
+                  }}
+                >
+                  <Typography variant="h5" component="h3">
+                    {projectTitle}
+                  </Typography>
+                  <Typography variant="body1" gutterBottom>
+                    {projectTitle === 'Bookmark Extension' && 'Lightweight Application made with JavaScript, CSS, & HTML to save and manage tabs.'}
+                    {projectTitle === 'MyFinance' && 'Track and Manage your finances, made with Java Spring Boot & PostgreSQL.'}
+                    {projectTitle === 'Quiz Whiz' && 'Collaborative Application built through Swift StoryboardUI and the use of Github/Git.'}
+                    {projectTitle === 'Turtle Crossing' && 'A python implemented turtle crossing game from the starting position to the finish line while avoiding the moving cars!'}
+                    {projectTitle === 'Kesk Chat' && 'Built with React and socket.io, a real time chat room.'}
+                  </Typography>
+                </Paper>
+              </Link>
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </Box>

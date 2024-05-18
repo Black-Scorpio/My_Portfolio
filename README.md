@@ -9,9 +9,6 @@ Welcome to my personal portfolio. This project showcases my skills, projects, an
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## About
 
