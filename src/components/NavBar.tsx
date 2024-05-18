@@ -1,3 +1,5 @@
+// src/components/NavBar.tsx
+
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -13,8 +15,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Technologies', 'About', 'Projects', 'Github', 'LinkedIn'];
-const settings = ['Technologies', 'About', 'Projects', 'Github', 'LinkedIn'];
+const pages = ['Technologies', 'About', 'Projects', 'Github', 'LinkedIn', 'Contact'];
+const settings = ['Technologies', 'About', 'Projects', 'Github', 'LinkedIn', 'Contact'];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -23,6 +25,7 @@ function NavBar() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -36,8 +39,9 @@ function NavBar() {
   };
 
   const handleMenuItemClick = (link: string) => {
+    handleCloseNavMenu();
     handleCloseUserMenu();
-    if (link.startsWith('#')) {
+    if (link.startsWith('#') || link === '#contact') {
       const id = link.substring(1);
       const element = document.getElementById(id);
       if (element) {
@@ -59,7 +63,7 @@ function NavBar() {
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon onClick={handleIconClick} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, cursor:'pointer' }} />
+          <AdbIcon onClick={handleIconClick} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, cursor: 'pointer' }} />
           <Typography
             variant="h6"
             noWrap
@@ -75,7 +79,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            
+            SCORPIO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -120,7 +124,7 @@ function NavBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <AdbIcon onClick={handleIconClick} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, cursor: 'pointer' }} />
           <Typography
             variant="h5"
             noWrap
@@ -145,9 +149,11 @@ function NavBar() {
                 key={page}
                 onClick={() => handleMenuItemClick(
                   page === 'Github' ? 'https://github.com/Black-Scorpio' :
-                  page === 'LinkedIn' ? 'https://linkedin.com/in/ScorpioGentles' : `#${page.toLowerCase()}`
+                  page === 'LinkedIn' ? 'https://linkedin.com/in/ScorpioGentles' : 
+                  page === 'Contact' ? '#footer' :
+                  `#${page.toLowerCase()}`
                 )}
-                sx={{ my: 2, color: 'white', display: 'block', marginRight:1 }}
+                sx={{ my: 2, color: 'white', display: 'block', marginRight: 1 }}
               >
                 {page}
               </Button>
@@ -186,7 +192,9 @@ function NavBar() {
                   key={setting}
                   onClick={() => handleMenuItemClick(
                     setting === 'Github' ? 'https://github.com/Black-Scorpio' :
-                    setting === 'LinkedIn' ? 'https://linkedin.com/in/ScorpioGentles' : `#${setting.toLowerCase()}`
+                    setting === 'LinkedIn' ? 'https://linkedin.com/in/ScorpioGentles' :
+                    setting === 'Contact' ? '#footer' :
+                    `#${setting.toLowerCase()}`
                   )}
                 >
                   <Typography textAlign="center">{setting}</Typography>
