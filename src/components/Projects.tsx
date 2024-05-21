@@ -29,7 +29,8 @@ const Projects: React.FC = () => {
           fontWeight: 'bold',
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
           fontSize: { xs: '2rem', md: '3rem' },
-          paddingTop: '64px'
+          paddingTop: '64px',
+          color: '#253F38'
       }}
         >
           Projects
