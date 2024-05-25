@@ -4,15 +4,16 @@ import React from 'react';
 import { Box, Container, Typography, Grid, Paper, Link } from '@mui/material';
 
 // Define the project titles type
-type ProjectTitle = 'Quiz Whiz' | 'Bookmark Extension' | 'MyFinance' | 'Kesk Chat' | 'Turtle Crossing';
+type ProjectTitle = 'Quiz Whiz' | 'Bookmark Extension' | 'MyFinance' | 'Kesk Chat' | 'Turtle Crossing' | 'Job Tracker';
 
 // Create the project links object with the defined type
 const projectLinks: Record<ProjectTitle, string> = {
-  'Quiz Whiz': 'https://github.com/Black-Scorpio/Quiz_Whiz',
+  'Job Tracker': 'https://github.com/Black-Scorpio/Job-Tracker',
   'Bookmark Extension': 'https://github.com/Black-Scorpio/BookmarkExtension',
+  'Turtle Crossing': 'https://github.com/Black-Scorpio/Turtle-Crossing',
+  'Quiz Whiz': 'https://github.com/Black-Scorpio/Quiz_Whiz',
   'MyFinance': 'https://github.com/Black-Scorpio/my-finance',
-  'Kesk Chat': 'https://github.com/kevyndowner/KeskChat_MainVersion',
-  'Turtle Crossing': 'https://github.com/Black-Scorpio/Turtle-Crossing'
+  'Kesk Chat': 'https://github.com/kevyndowner/KeskChat_MainVersion'
 };
 
 const Projects: React.FC = () => {
@@ -69,6 +70,8 @@ const Projects: React.FC = () => {
                     {projectTitle === 'Quiz Whiz' && 'Collaborative Application built through Swift StoryboardUI and the use of Github/Git.'}
                     {projectTitle === 'Turtle Crossing' && 'A python implemented turtle crossing game from the starting position to the finish line while avoiding the moving cars!'}
                     {projectTitle === 'Kesk Chat' && 'Built with React and socket.io, a real time chat room.'}
+                    {projectTitle === 'Job Tracker' && 'Track and manage your job applications with React, Material-UI, Node.js, MongoDB, PostgreSQL, Express.js, and Docker.'}
+
                   </Typography>
                 </Paper>
               </Link>
