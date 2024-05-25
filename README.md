@@ -35,12 +35,12 @@ To install and run this project locally, follow these steps:
 
    ```
 
-2. ```npm install
-
+2. ```npm 
+   npm install
    ```
 
-3. ```npm run dev
-
+3. ```npm
+   npm run dev
    ```
 
 ## Usage
