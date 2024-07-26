@@ -5,17 +5,23 @@ import { Box, Container, Typography, Grid, Chip } from '@mui/material';
 
 const technologies = [
   'Python',
-  'Java',
+  'Flask',
   'Airflow',
   'Quicksight',
+  'Git',
+  'GitHub',
+  'Docker',
+  'React',
+  'Java',
   'Spring Boot',
   'PostgreSQL',
+  'MySQL',
   'AWS',
-  'React',
+  'Azure',
   'TypeScript',
   'MUI (Material-UI)',
-  'MySQL',
-  'GitHub',
+  'BootStrap',
+  'JavaScript',
   'Node.js'
 ];
 
